@@ -1,24 +1,20 @@
-import React from 'react'
-import { Context } from '../App'
+import React from 'react';
+import { NameContext, AgeContext } from '../App';
 
 const ChildC = () => {
-
-    
   return (
-
-       <Context.Consumer>
-          { (name)=>{
-
-            return (
-                
-                <h1>name is:{name}</h1>
-
-            )
-           }
-        }
-       </Context.Consumer>
-
-  )
+    <NameContext.Consumer>
+      {(name) => (
+        <AgeContext.Consumer>
+          {(age) => (
+            <h1>
+              Name is: {name}  Age is {age}
+            </h1>
+          )}
+        </AgeContext.Consumer>
+      )}
+    </NameContext.Consumer>
+  );
 }
 
-export default ChildC
+export default ChildC;
